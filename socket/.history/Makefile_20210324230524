@@ -1,0 +1,20 @@
+# src = $(wildcard *.cpp)
+# obj = $(patsubst %.cpp, %.o, $(src))
+# ALL:a.out
+# a.out: $(obj)
+# 	g++ $^ -o $@
+
+# %.o:%.c
+# 	g++ -c $< -o $@
+
+# clean:
+# 	-rm -rf $(obj) a.out         
+server:server_new.o
+	g++ server_new.o -o server
+client:client_new.o
+	g++ client_new.o -o client
+server.o:server_new.c
+	g++ -c server_new.c -o server_new.o
+cilent.o:client_new.c
+	g++ -c client_new.c -o client_new.o
+
